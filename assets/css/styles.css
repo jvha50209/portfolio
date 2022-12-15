@@ -8,7 +8,6 @@ Definér variabler
     --secondary-color: #E7267B;
     --ui-element-color: #F59A2D;
     --main-text-color: #FFFFFF;
-    --body-font-stack: mr-eaves-xl-sans, sans-serif;
 }
 
 
@@ -74,6 +73,10 @@ button,
 Projektspecifik styling
 */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--main-bg-color);
     color: var(--main-text-color);
@@ -96,4 +99,10 @@ button,
 p {
     font-weight: 400;
     font-style: normal;
+}
+
+.top-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
