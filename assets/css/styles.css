@@ -1,0 +1,99 @@
+/*
+Definér variabler
+*/
+
+:root {
+    --main-bg-color: #1F1319;
+    --primary-color: #4F1F9D;
+    --secondary-color: #E7267B;
+    --ui-element-color: #F59A2D;
+    --main-text-color: #FFFFFF;
+    --body-font-stack: mr-eaves-xl-sans, sans-serif;
+}
+
+
+/*
+Gør styling ens på tværs af browsere + andet standard-styling
+*/
+
+body {
+    margin: 0;
+    font: 16px/1.5 mr-eaves-xl-sans, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+blockquote,
+figure,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+div,
+section {
+    position: relative;
+}
+
+a,
+button,
+[type='button'],
+[type='submit'] {
+    color: inherit;
+}
+
+[type='submit'] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+a {
+    background: transparent;
+    text-decoration: none;
+}
+
+button,
+[type='button'],
+[type='submit'] {
+    margin: 0;
+    background: transparent;
+    border: 0;
+    overflow: visible;
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+}
+
+
+/*
+Projektspecifik styling
+*/
+
+body {
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+em,
+a,
+button,
+[type='button'],
+[type='submit'] {
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.025em;
+}
+
+p {
+    font-weight: 400;
+    font-style: normal;
+}
