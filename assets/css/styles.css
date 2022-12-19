@@ -17,6 +17,9 @@
     --large-gap: 46px;
     --huge-gap: 80px;
     --desktop-width: 1224px;
+    --tablet-width: 768px;
+    --phone-width: 480px;
+    --small-phone-width: 320px;
     --standard-transition: 200ms ease-in-out;
 }
 
@@ -333,3 +336,36 @@ header {
     Media queries
     --------------------
 */
+
+@media screen and (max-width: 1223px) /* desktop-width minus 1 pixel */ {
+}
+
+@media screen and (max-width: 767px) /* tablet-width minus 1 pixel */ {
+
+    /*
+        --------------------
+        Header, menu og tilhørende styling
+        --------------------
+    */
+    
+    .main-nav-item {
+        font-size: 5rem;
+    }
+
+    .main-nav-item::after {
+        width: calc(100% - 40px);
+    }
+}
+
+@media screen and (max-width: 479px) /* phone-width minus 1 pixel */ {
+
+    /*
+        --------------------
+        Header, menu og tilhørende styling
+        --------------------
+    */
+    
+    .main-nav-item {
+        font-size: 4.5rem;
+    }
+}
