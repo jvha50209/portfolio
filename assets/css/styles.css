@@ -1,5 +1,7 @@
 /*
-Definér variabler
+    --------------------
+    Definér variabler
+    --------------------
 */
 
 :root {
@@ -8,11 +10,21 @@ Definér variabler
     --secondary-color: #E7267B;
     --ui-element-color: #F59A2D;
     --main-text-color: #FFFFFF;
+    --normal-font-size: 1rem;
+    --medium-font-size: 1.125rem;
+    --small-gap: 14px;
+    --medium-gap: 30px;
+    --large-gap: 46px;
+    --huge-gap: 80px;
+    --desktop-width: 1224px;
+    --standard-transition: 200ms ease-in-out;
 }
 
 
 /*
-Gør styling ens på tværs af browsere + andet standard-styling
+    --------------------
+    Gør styling ens på tværs af browsere + andet standard-styling
+    --------------------
 */
 
 body {
@@ -34,6 +46,10 @@ ul {
     padding: 0;
 }
 
+li {
+    list-style: none;
+}
+
 div,
 section {
     position: relative;
@@ -53,7 +69,6 @@ button,
 
 a {
     background: transparent;
-    text-decoration: none;
 }
 
 button,
@@ -70,7 +85,9 @@ button,
 
 
 /*
-Projektspecifik styling
+    --------------------
+    Projektspecifik styling
+    --------------------
 */
 
 html {
@@ -82,6 +99,29 @@ body {
     color: var(--main-text-color);
 }
 
+.menu {
+    z-index: 3;
+}
+
+header {
+    z-index: 2;
+}
+
+main {
+    z-index: 1;
+}
+
+footer {
+    z-index: 0;
+}
+
+.section-inner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--desktop-width);
+    padding: var(--large-gap) var(--medium-gap);
+}
+
 h1,
 h2,
 h3,
@@ -91,13 +131,15 @@ label,
 button,
 [type='button'],
 [type='submit'],
-.button {
+.button,
+.hamburger-text,
+.main-nav-item {
     font-weight: 900;
     font-style: italic;
     letter-spacing: -0.025em;
 }
 
-p {
+p, a {
     font-weight: 400;
     font-style: normal;
 }
@@ -107,3 +149,187 @@ p {
     top: 0;
     left: 0;
 }
+
+/*
+    --------------------
+    Header, menu og tilhørende styling
+    --------------------
+*/
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-inner {
+    width: 100%;
+    padding: var(--medium-gap);
+    max-width: var(--desktop-width);
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-logo {
+    width: 150px;
+    fill: var(--main-text-color);
+    display: block;
+    margin-top: -10px;
+}
+
+.hamburger-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform-origin: center center;
+    transition: transform var(--standard-transition);
+}
+
+.hamburger-wrapper:hover {
+    transform: scale(1.125);
+}
+
+.hamburger {
+    fill: var(--ui-element-color);
+    width: 46px;
+}
+
+.hamburger-text {
+    color: var(--ui-element-color);
+    font-size: var(--medium-font-size);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: var(--primary-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--standard-transition);
+}
+
+.menu.visible {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.menu-inner {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    max-width: var(--desktop-width);
+    padding: 0 var(--medium-gap);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.close-menu {
+    position: absolute;
+    top: var(--medium-gap);
+    right: var(--medium-gap);
+    height: 42px;
+    width: 42px;
+    fill: var(--ui-element-color);
+    cursor: pointer;
+    transform-origin: center center;
+    transition: transform var(--standard-transition);
+}
+
+.close-menu:hover {
+    transform: scale(1.125);
+}
+
+.main-nav {
+    position: relative;
+    top: calc(46px + var(--huge-gap));
+}
+
+.main-nav-item {
+    position: relative;
+    display: inline-block;
+    font-size: 7rem;
+    text-decoration: none;
+    line-height: 1.25em;
+    opacity: 0.3;
+    transition: opacity var(--standard-transition);
+    width: 100%;
+}
+
+.main-nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 40px;
+    height: 8px;
+    width: calc(100% - 40px - 2 * var(--medium-gap));
+    background: var(--main-text-color);
+    opacity: 0;
+}
+
+.main-nav-item:hover {
+    opacity: 1;
+}
+
+.main-nav-item.current-page {
+    opacity: 1;
+    margin-bottom: 10px;
+}
+
+.main-nav-item.current-page::after {
+    opacity: 1;
+}
+
+.menu-some-wrapper {
+    position: absolute;
+    bottom: var(--medium-gap);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.some-icon {
+    height: 28px;
+    width: 28px;
+    fill: #FFFFFF;
+    opacity: 0.3;
+    transition: opacity var(--standard-transition);
+}
+
+.some-icon:hover {
+    opacity: 1;
+}
+
+.menu-some-icon {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 var(--small-gap);
+}
+
+.menu-some-icon:first-child {
+    margin-left: 0;
+}
+
+.menu-some-icon:last-child {
+    margin-right: 0;
+}
+
+
+/*
+    --------------------
+    Media queries
+    --------------------
+*/
