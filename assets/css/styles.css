@@ -87,10 +87,11 @@ h2,
 h3,
 h4,
 em,
-a,
+label,
 button,
 [type='button'],
-[type='submit'] {
+[type='submit'],
+.button {
     font-weight: 900;
     font-style: italic;
     letter-spacing: -0.025em;
