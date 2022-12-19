@@ -23,7 +23,6 @@
     --standard-transition: 200ms ease-in-out;
 }
 
-
 /*
     --------------------
     Gør styling ens på tværs af browsere + andet standard-styling
@@ -86,6 +85,38 @@ button,
     cursor: pointer;
 }
 
+/*
+    --------------------
+    Animationer
+    --------------------
+*/
+
+@keyframes hero-wave-enter {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero-image-enter {
+    0% {
+        transform: translateX(-15%) translateY(100%);
+    }
+    100% {
+        transform: translateX(-15%) translateY(0);
+    }
+}
+
+@keyframes hero-image-enter-phone {
+    0% {
+        transform: translateX(calc(-50% - 15px)) translateY(100%);
+    }
+    100% {
+        transform: translateX(calc(-50% - 15px)) translateY(0);
+    }
+}
 
 /*
     --------------------
@@ -143,6 +174,10 @@ button,
     letter-spacing: -0.025em;
 }
 
+h1, h2, h3, h4 {
+    line-height: 1.125em;
+}
+
 p, a {
     font-weight: 400;
     font-style: normal;
@@ -161,7 +196,7 @@ p, a {
 */
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -331,6 +366,75 @@ header {
     margin-right: 0;
 }
 
+/*
+    --------------------
+    Hero section
+    --------------------
+*/
+
+.hero-section {
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.hero-extras-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-wave-front,
+.hero-wave-back {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    height: 25vw;
+    min-height: 250px;
+    max-height: 350px;
+}
+
+.hero-wave-back {
+    fill: var(--secondary-color);
+    animation: hero-wave-enter 4s ease-out forwards;
+}
+
+.hero-image {
+    position: absolute;
+    width: 642px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-15%) translateY(100%);
+    animation: hero-image-enter 1.5s 1s ease-out forwards;
+}
+
+.hero-wave-front {
+    fill: var(--primary-color);
+    animation: hero-wave-enter 2.5s ease-out forwards;
+}
+
+.hero-section-inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 100px;
+    padding: var(--large-gap) var(--huge-gap);
+}
+
+.hero-logo {
+    fill: var(--main-text-color);
+    width: 400px;
+}
+
+.hero-heading {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    left: 80px;
+    font-size: 2.25rem;
+}
 
 /*
     --------------------
@@ -344,9 +448,9 @@ header {
 @media screen and (max-width: 767px) /* tablet-width minus 1 pixel */ {
 
     /*
-        --------------------
-        Header, menu og tilhørende styling
-        --------------------
+    --------------------
+    Header, menu og tilhørende styling
+    --------------------
     */
     
     .main-nav-item {
@@ -356,17 +460,83 @@ header {
     .main-nav-item::after {
         width: calc(100% - 40px);
     }
+
+    /*
+    --------------------
+    Hero section
+    --------------------
+    */
+
+    .hero-wave-front,
+    .hero-wave-back {
+        bottom: -50px;
+        left: -100px;
+    }
+
+    .hero-image {
+        left: calc(40% - 30px);
+        width: 500px;
+    }
+
+    .hero-section-inner {
+        padding: var(--large-gap) var(--large-gap);
+    }
+
+    .hero-logo {
+        width: 320px;
+    }
+
+    .hero-heading {
+        max-width: 400px;
+        left: 50px;
+        font-size: 1.75rem;
+    }
 }
 
 @media screen and (max-width: 479px) /* phone-width minus 1 pixel */ {
 
     /*
-        --------------------
-        Header, menu og tilhørende styling
-        --------------------
+    --------------------
+    Header, menu og tilhørende styling
+    --------------------
     */
     
     .main-nav-item {
         font-size: 4.5rem;
+    }
+
+    /*
+    --------------------
+    Hero section
+    --------------------
+    */
+
+    .hero-wave-front,
+    .hero-wave-back {
+        bottom: -50px;
+        left: -200px;
+    }
+
+    .hero-image {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(calc(-50% - 15px)) translateY(100%);
+        width: 390px;
+        animation: hero-image-enter-phone 1.5s 1s ease-out forwards;
+    }
+
+    .hero-section-inner {
+        padding: var(--large-gap) var(--medium-gap);
+    }
+
+    .hero-logo {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hero-heading {
+        max-width: 340px;
+        left: 30px;
+        font-size: 1.5rem;
     }
 }
