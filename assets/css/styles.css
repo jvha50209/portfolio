@@ -156,7 +156,7 @@ button,
 
 /*
     --------------------
-    Projektspecifik styling
+    Standard-elementer + gennemgående elementer
     --------------------
 */
 
@@ -278,6 +278,7 @@ textarea {
 */
 
 .contact-form {
+    position: relative;
     margin: 0 auto;
     width: 100%;
     max-width: 800px;
@@ -331,7 +332,9 @@ textarea {
 }
 
 .info-text {
+    font-size: 0.875rem;
     opacity: 0.5;
+    text-align: right;
 }
 
 /*
@@ -686,9 +689,9 @@ header {
 }
 
 /*
-    --------------------
+    ----------------------------------------
     Media queries
-    --------------------
+    ----------------------------------------
 */
 
 @media screen and (max-width: 1223px) /* desktop-width minus 1 pixel */ {
@@ -709,13 +712,35 @@ header {
 
     /*
     --------------------
-    Standard-elementer
+    Standard-elementer + gennemgående elementer
     --------------------
     */
 
     h2,
     .h2 {
         font-size: 2rem;
+    }
+
+    /*
+    --------------------
+    Styling til kontaktformular
+    --------------------
+    */
+
+    .contact-form {
+        padding: var(--large-gap) var(--medium-gap);
+    }
+
+    .contact-form-fields {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "name" 
+            "email" 
+            "message";
+        grid-row-gap: var(--small-gap);
+        grid-column-gap: var(--medium-gap);
     }
 
     /*
@@ -779,13 +804,33 @@ header {
 
     /*
     --------------------
-    Standard-elementer
+    Standard-elementer + gennemgående elementer
     --------------------
     */
 
     h2,
     .h2 {
         font-size: 1.5rem;
+    }
+
+    .section-inner {
+        padding: var(--large-gap) var(--small-gap);
+    }
+
+    /*
+    --------------------
+    Styling til kontaktformular
+    --------------------
+    */
+
+    .contact-below-fields {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-text {
+        margin-top: var(--medium-gap);
+        align-self: flex-end;
     }
 
     /*
