@@ -9,9 +9,8 @@
     --primary-color: #4F1F9D;
     --secondary-color: #E7267B;
     --ui-element-color: #F59A2D;
+    --ui-element-color-darker: #D67A0A;
     --main-text-color: #FFFFFF;
-    --normal-font-size: 1rem;
-    --medium-font-size: 1.125rem;
     --small-gap: 14px;
     --medium-gap: 30px;
     --large-gap: 46px;
@@ -21,6 +20,7 @@
     --phone-width: 480px;
     --small-phone-width: 320px;
     --standard-transition: 200ms ease-in-out;
+    --border-radius: 1.5rem;
 }
 
 /*
@@ -31,7 +31,7 @@
 
 body {
     margin: 0;
-    font: 16px/1.5 mr-eaves-xl-sans, sans-serif;
+    font: 18px/1.5 mr-eaves-xl-sans, sans-serif;
 }
 
 h1,
@@ -64,9 +64,23 @@ button,
     color: inherit;
 }
 
+textarea,
+[type='text'],
+[type='email'],
 [type='submit'] {
     appearance: none;
     -webkit-appearance: none;
+}
+
+textarea,
+[type='text'],
+[type='email'] {
+    border: none;
+    font: inherit;
+}
+
+textarea {
+    resize: none;
 }
 
 a {
@@ -181,6 +195,7 @@ footer {
 
 h1,
 h2,
+.h2,
 h3,
 h4,
 em,
@@ -201,6 +216,10 @@ h1, h2, h3, h4 {
     line-height: 1.125em;
 }
 
+h2 {
+    font-size: 2.25rem;
+}
+
 p, a {
     font-weight: 400;
     font-style: normal;
@@ -214,6 +233,109 @@ p, a {
 
 /*
     --------------------
+    UI-elementer
+    --------------------
+*/
+
+.btn {
+    box-sizing: border-box;
+    height: 54px;
+    padding: var(--small-gap) var(--medium-gap);
+    border-radius: 27px;
+    color: var(--main-text-color);
+    border: 3px solid var(--main-text-color);
+    font-size: 1.33rem;
+    line-height: 1em;
+}
+
+.cta-btn {
+    background: var(--ui-element-color);
+    border: 3px solid transparent;
+    color: var(--main-bg-color);
+    transition: background-color var(--standard-transition);
+}
+
+.cta-btn:hover {
+    background: var(--ui-element-color-darker);
+}
+
+label {
+    margin-bottom: 2px;
+    position: relative;
+    left: 8px;
+}
+
+input,
+textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+/*
+    --------------------
+    Styling til kontaktformular
+    --------------------
+*/
+
+.contact-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    padding: var(--large-gap) var(--large-gap);
+    background: var(--main-bg-color);
+    border-radius: var(--border-radius); 
+}
+
+.contact-form-heading {
+    margin-bottom: var(--medium-gap);
+}
+
+.contact-name-input {
+    grid-area: name;
+}
+
+.contact-email-input {
+    grid-area: email;
+}
+
+.contact-message {
+    grid-area: message;
+}
+
+.contact-form-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "name email" 
+        "message message";
+    grid-row-gap: var(--small-gap);
+    grid-column-gap: var(--medium-gap);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-below-fields {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.contact-submit-btn {
+    margin-top: var(--medium-gap);
+}
+
+.info-text {
+    opacity: 0.5;
+}
+
+/*
+    --------------------
     Header, menu og tilhørende styling
     --------------------
 */
@@ -223,6 +345,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    pointer-events: none;
 }
 
 .header-inner {
@@ -242,6 +365,7 @@ header {
     fill: var(--main-text-color);
     display: block;
     margin-top: -10px;
+    pointer-events: initial;
 }
 
 .hamburger-wrapper {
@@ -253,6 +377,7 @@ header {
     cursor: pointer;
     transform-origin: center center;
     transition: transform var(--standard-transition);
+    pointer-events: initial;
 }
 
 .hamburger-wrapper:hover {
@@ -266,7 +391,7 @@ header {
 
 .hamburger-text {
     color: var(--ui-element-color);
-    font-size: var(--medium-font-size);
+    font-size: 1.125rem;
 }
 
 .menu {
@@ -391,6 +516,36 @@ header {
 
 /*
     --------------------
+    Styling til footer
+    --------------------
+*/
+
+.footer-inner {
+    position: relative;
+    padding: var(--large-gap) var(--medium-gap);
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--desktop-width);
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    fill: var(--ui-element-color);
+    width: 240px;
+    margin-bottom: var(--large-gap);
+}
+
+.footer-heading {
+    max-width: 400px;
+}
+
+.footer-some-wrapper {
+    display: grid;
+    grid-column-gap: var(--medium-gap);
+}
+
+/*
+    --------------------
     Styling til forside
     --------------------
 */
@@ -510,14 +665,68 @@ header {
 
 /*
     --------------------
+    About section
+    --------------------
+*/
+
+.about-section {
+    background: var(--primary-color);
+    margin-top: -1px;
+}
+
+/*
+    --------------------
+    About section
+    --------------------
+*/
+
+.contact-section {
+    background: var(--primary-color);
+    margin-top: -1px;
+}
+
+/*
+    --------------------
     Media queries
     --------------------
 */
 
 @media screen and (max-width: 1223px) /* desktop-width minus 1 pixel */ {
+
+    /*
+    --------------------
+    Elementer til forside
+    --------------------
+    */
+
+    .index-section-title {
+        font-size: 18rem;
+    }
+
 }
 
 @media screen and (max-width: 767px) /* tablet-width minus 1 pixel */ {
+
+    /*
+    --------------------
+    Standard-elementer
+    --------------------
+    */
+
+    h2,
+    .h2 {
+        font-size: 2rem;
+    }
+
+    /*
+    --------------------
+    Elementer til forside
+    --------------------
+    */
+
+    .index-section-title {
+        font-size: 10rem;
+    }
 
     /*
     --------------------
@@ -567,6 +776,27 @@ header {
 }
 
 @media screen and (max-width: 479px) /* phone-width minus 1 pixel */ {
+
+    /*
+    --------------------
+    Standard-elementer
+    --------------------
+    */
+
+    h2,
+    .h2 {
+        font-size: 1.5rem;
+    }
+
+    /*
+    --------------------
+    Elementer til forside
+    --------------------
+    */
+
+    .index-section-title {
+        font-size: 6rem;
+    }
 
     /*
     --------------------
