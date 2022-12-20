@@ -118,6 +118,28 @@ button,
     }
 }
 
+@keyframes hero-logo-enter {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hero-heading-enter {
+    0% {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /*
     --------------------
     Projektspecifik styling
@@ -420,7 +442,7 @@ header {
     bottom: 50px;
     left: 50%;
     transform: translateX(-15%) translateY(100%);
-    animation: hero-image-enter 1.5s 1s ease-out forwards;
+    animation: hero-image-enter 1.5s 300ms ease-out forwards;
 }
 
 .hero-wave-front {
@@ -439,6 +461,10 @@ header {
 .hero-logo {
     fill: var(--main-text-color);
     width: 400px;
+    transform-origin: center center;
+    transform: scale(0.5);
+    opacity: 0;
+    animation: hero-logo-enter 500ms 1.2s ease-out forwards;
 }
 
 .hero-heading {
@@ -446,7 +472,10 @@ header {
     max-width: 450px;
     position: relative;
     left: 80px;
+    transform: translateX(60px);
+    opacity: 0;
     font-size: 2.25rem;
+    animation: hero-heading-enter 700ms 1.6s ease-out forwards;
 }
 
 .go-down {
@@ -476,6 +505,7 @@ header {
 
 .cases-section {
     background: var(--primary-color);
+    margin-top: -1px;
 }
 
 /*
