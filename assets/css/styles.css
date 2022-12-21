@@ -20,6 +20,7 @@
     --phone-width: 480px;
     --small-phone-width: 320px;
     --standard-transition: 200ms ease-in-out;
+    --fast-transition: 100ms ease-in-out;
     --border-radius: 1.5rem;
 }
 
@@ -223,6 +224,14 @@ h2 {
 p, a {
     font-weight: 400;
     font-style: normal;
+}
+
+a {
+    transition: color var(--fast-transition);
+}
+
+a:hover {
+    color: var(--ui-element-color);
 }
 
 .top-marker {
@@ -469,6 +478,7 @@ header {
 
 .main-nav-item:hover {
     opacity: 1;
+    color: var(--main-text-color);
 }
 
 .main-nav-item.current-page {
@@ -540,11 +550,35 @@ header {
 
 .footer-heading {
     max-width: 400px;
+    margin-bottom: var(--medium-gap);
 }
 
 .footer-some-wrapper {
     display: grid;
     grid-column-gap: var(--medium-gap);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: var(--medium-gap);
+}
+
+.footer-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-left: 44px;
+}
+
+.footer-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 28px;
+    fill: var(--main-text-color);
 }
 
 /*
@@ -769,6 +803,20 @@ header {
 
     /*
     --------------------
+    Styling til footer
+    --------------------
+    */
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .privacy-footer-link {
+        margin-top: var(--medium-gap);
+    }
+
+    /*
+    --------------------
     Hero section
     --------------------
     */
@@ -851,6 +899,16 @@ header {
     
     .main-nav-item {
         font-size: 4.5rem;
+    }
+
+    /*
+    --------------------
+    Styling til footer
+    --------------------
+    */
+
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 
     /*
