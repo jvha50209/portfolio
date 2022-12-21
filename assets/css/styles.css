@@ -237,12 +237,6 @@ a:hover {
     color: var(--ui-element-color);
 }
 
-.page-heading {
-    font-size: 4rem;
-    line-height: 1em;
-    max-width: 700px;
-}
-
 .top-marker {
     position: absolute;
     top: 0;
@@ -820,7 +814,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scaleX(0.77);
     width: auto;
 }
 
@@ -846,7 +840,23 @@ footer {
 }
 
 .case-image-batavus img {
-    height: 260px;
+    height: 300px;
+}
+
+.case-image-camplux {
+    background: #4F80FF;
+}
+
+.case-image-camplux img {
+    height: 100px;
+}
+
+.case-image-jannick-haunstrup {
+    background: #101d26;
+}
+
+.case-image-jannick-haunstrup img {
+    height: 300px;
 }
 
 .case-text {
@@ -906,7 +916,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scaleX(0.715);
     object-fit: cover;
 }
 
@@ -935,6 +945,24 @@ footer {
 }
 
 .cases-main-content {
+    overflow: hidden;
+}
+
+/*
+    --------------------
+    Styling til about-side
+    --------------------
+*/
+
+.about {
+    background: var(--primary-color);
+}
+
+.about-main {
+    padding-top: 100px;
+}
+
+.about-main-content {
     overflow: hidden;
 }
 
@@ -1001,6 +1029,11 @@ footer {
 
     .index-section-title {
         font-size: 10rem;
+        margin-bottom: var(--small-gap);
+    }
+
+    .case-section-title {
+        margin-bottom: var(--large-gap);
     }
 
     /*
@@ -1085,6 +1118,10 @@ footer {
         overflow: hidden;
     }
 
+    .case-image img {
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+
     .case-text {
         width: 100%;
     }
@@ -1121,6 +1158,10 @@ footer {
         transform-origin: center;
         transform: scaleX(1);
         margin-bottom: -80px;
+    }
+
+    .about-section-image img {
+        transform: translate(-50%, -50%) scaleX(1);
     }
 }
 
