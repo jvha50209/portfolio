@@ -54,7 +54,8 @@ li {
 }
 
 div,
-section {
+section,
+footer {
     position: relative;
 }
 
@@ -533,9 +534,31 @@ header {
     --------------------
 */
 
+.footer-extras {
+    overflow: hidden;
+    height: 200px;
+}
+
+.footer-wave-back,
+.footer-wave-front {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 400px;
+}
+
+.footer-wave-back {
+    fill: var(--secondary-color);
+}
+
+.footer-wave-front {
+    fill: var(--primary-color);
+}
+
 .footer-inner {
     position: relative;
-    padding: var(--large-gap) var(--medium-gap);
+    padding: var(--small-gap) var(--medium-gap) var(--large-gap);
     margin: 0 auto;
     width: 100%;
     max-width: var(--desktop-width);
