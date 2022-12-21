@@ -230,6 +230,7 @@ p, a {
 
 a {
     transition: color var(--fast-transition);
+    white-space: nowrap;
 }
 
 a:hover {
@@ -744,6 +745,11 @@ header {
     padding: 0 var(--medium-gap) 120px;
 }
 
+.case-section-title {
+    line-height: 0.5em;
+    margin-bottom: 0.2em;
+}
+
 .case {
     display: flex;
     gap: var(--large-gap);
@@ -820,18 +826,46 @@ header {
 
 .about-section {
     background: var(--primary-color);
-    margin-top: -1px;
+    overflow: hidden;
+}
+
+.about-section-heading {
+    margin-bottom: var(--small-gap);
+}
+
+.about-section-content {
+    display: flex;
+    gap: var(--large-gap);
+}
+
+.about-section-text {
+    width: 50%;
+}
+
+.about-section-image {
+    position: relative;
+    top: -80px;
+    height: 500px;
+    width: 50%;
+    transform-origin: left;
+    transform: scaleX(1.6);
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    background: var(--ui-element-color);
+    box-shadow: -10px 10px 0px 0px var(--main-bg-color);
+    -webkit-box-shadow: -10px 10px 0px 0px var(--main-bg-color);
+    -moz-box-shadow: -10px 10px 0px 0px var(--main-bg-color);
+    margin-bottom: -80px;
+    overflow: hidden;
 }
 
 /*
     --------------------
-    About section
+    Contact section
     --------------------
 */
 
 .contact-section {
     background: var(--primary-color);
-    margin-top: -1px;
 }
 
 /*
@@ -978,10 +1012,45 @@ header {
         height: 300px;
         width: calc(100% + 200px);
         transform: scaleX(1);
+        overflow: hidden;
     }
 
     .case-text {
         width: 100%;
+    }
+
+    /*
+    --------------------
+    About section
+    --------------------
+    */
+
+    .about-section-inner {
+        padding-bottom: 180px;
+    }
+
+    .about-section-heading {
+        margin-bottom: var(--small-gap);
+    }
+
+    .about-section-content {
+        flex-direction: column;
+        gap: var(--medium-gap);
+    }
+
+    .about-section-text {
+        width: 100%;
+    }
+
+    .about-section-image {
+        position: relative;
+        top: 0;
+        height: 250px;
+        width: calc(100% + 160px);
+        left: -80px;
+        transform-origin: center;
+        transform: scaleX(1);
+        margin-bottom: -80px;
     }
 }
 
@@ -1091,5 +1160,15 @@ header {
 
     .cases-section-inner {
         padding-bottom: 120px;
+    }
+
+    /*
+    --------------------
+    About section
+    --------------------
+    */
+
+    .about-section-inner {
+        padding-bottom: 180px;
     }
 }
